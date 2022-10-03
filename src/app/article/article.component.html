@@ -1,0 +1,27 @@
+<div>
+    <h1 id="article_title">{{article.getTitle()}}</h1>
+    <h4><a id="article_edit" [routerLink]="['/edit/', article.getId()]">Edit</a></h4>
+    <div>
+        <p id="article_content">{{article.getContent()}}</p>
+    </div>
+
+    <div class="">
+        <h1>Comments</h1>
+        <iframe name="dummy" id="dummyframe" style="display:none;"></iframe>
+        <div *ngIf="warning" class="alert-danger" id="warning">{{message}}</div>
+        <div class="card">
+            <form [formGroup]="checkoutForm" (ngSubmit)="submitComment()">
+                <input formControlName="username" id="comment_name" type="text" name="username" placeholder="username">
+                <textarea formControlName="content" id="comment_content" type="text" class="form-control" name="comment" rows="3"></textarea>
+                <input id="comment_submit" type="submit" value="Submit">
+            </form>
+        </div>
+
+        <div *ngFor="let comment of article.getComments()" class="card">
+            <h5 class="card-title">{{comment['username']}}</h5>
+            <div class="card-body">{{comment['content']}}</div>
+        </div>
+
+    </div>
+    
+</div>

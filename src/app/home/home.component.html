@@ -1,0 +1,17 @@
+<div>
+    <h1>Pico Lite</h1>
+    <h2>Learn to code video games with simple tools and tutorials!</h2>
+    <div>
+        <div>
+            <form nonvalidate class="simple-form">
+                <label>Fiter: <input type="text">
+                </label>
+            </form>
+        </div>
+        <div *ngFor="let article of articles">
+            <h3>
+                <a [routerLink]="['/article/',article.getId()]">{{article.getTitle()}}</a>
+            </h3>
+        </div>
+    </div>
+</div>
