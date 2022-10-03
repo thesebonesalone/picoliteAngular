@@ -1,0 +1,16 @@
+<div>
+    <form [formGroup]="checkoutForm" (ngSubmit)="submitArticle()">
+        <h1>
+            <input id="title_field" type="text" name="title" placeholder="Title" formControlName="title">
+        </h1>
+        <textarea id="content_field" type="text" class="form-control" formControlName="content"></textarea>
+        <input id="submit_button" type="submit" value="Submit">
+        <div [ngSwitch]="article.getId()">
+            <div *ngSwitchCase="0"></div>
+            <div *ngSwitchDefault>
+                <button id="delete_button" type="button" class="btn btn-danger" value="Delete" (click)="deleteArticle()">Delete</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
